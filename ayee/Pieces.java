@@ -1,4 +1,4 @@
-package ayee;
+package bscs.ayee;
 
 class Pieces 
 {
