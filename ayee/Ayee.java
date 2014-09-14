@@ -22,6 +22,16 @@ public class Ayee
 			3.
 	*/
 
+	private int 
+		priv = 0,	serg = 1,
+		lut2 = 2,	lut1 = 3, 	
+		capt = 4,	majr = 5, 	
+		col1 = 6,	col2 = 7, 	
+		gen1 = 8,	gen2 = 9, 	
+		gen3 = 10,	gen4 = 11, 	
+		gen5 = 12,	spyy = 13,	
+		flag = 14;
+
 	public JButton[][] InstantiatePiece(int iAI, JButton[][] Board,ImageIcon[] images)
 	{
 		/*
@@ -41,6 +51,7 @@ public class Ayee
 			13	SPY
 			14	FLAG
 		*/
+
 		if(iAI == 1)
 		{
 			/*
