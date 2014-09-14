@@ -17,9 +17,9 @@ public class Ayee
 			3. Ferrer, Mea May F.
 			4. Rolluqui, Divane Mae O.
 		ALGORITHM USED
-			1.
-			2.
-			3.
+			1. Genetic Algorithm
+			2. Bayesian Network
+			3. Hidden Markov Model
 	*/
 
 	private int 
