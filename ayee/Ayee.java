@@ -12,10 +12,10 @@ public class Ayee
 	/*
 		SECTION :
 		MEMBER  :
-			1.
-			2.
-			3.
-			4.
+			1. Bercasio, Charlene C.
+			2. Casing, Patricia Vianca N.
+			3. Ferrer, Mea May F.
+			4. Rolluqui, Divane Mae O.
 		ALGORITHM USED
 			1.
 			2.
