@@ -90,29 +90,33 @@ public class Ayee
 
 		if(iAI == 1)
 		{
-			/*
-				Move of AI 1 is bottom up (optional) since AI 1's piece is on the lower part of the board
-			*/
+			for(int i = 1; i < 8; i++) {
+				for (int j = 0; j < 9; j++) {
+					if(pieceIsMine(iAI, Board[i][j]) && ! pieceIsMine(iAI, Board[i-1][j]))
+					{
+						return new int[][] {
+							{i, j},
+							{i-1, j}
+						};
+					}
+				}
+			}
 		}// if iAI == 1
 		else
 		{
-			/*
-				Move of AI 2 is top bottom (optional) since AI 2's piece is on the upper part of the board
-			*/
+			for(int i = 6; i >= 0; i--) {
+				for (int j = 8; j >= 0; j--) {
+					if(pieceIsMine(iAI, Board[i][j]) && ! pieceIsMine(iAI, Board[i+1][j]))
+					{	
+						return new int[][] {
+							{i, j},
+							{i+1, j}
+						};
+					}
+				}
+			}
 		}// if iAI == 2
 
-		/*
-			EXAMPLE
-
-				Move[0][0] = 0;
-				Move[0][1] = 0;
-
-				Move[1][0] = 1;
-				Move[1][1] = 0;
-
-
-				The piece on Board[Move[0][0]][Move[0][1]] will be place in Board[Move[1][0]][Move[1][1]]
-		*/
 
 		return Move;
 	}// AIMove
@@ -178,5 +182,13 @@ public class Ayee
 				}
 			}
 		}
+	}
+
+	public boolean pieceIsMine(int ai, JButton button) {
+		return button.getIcon().toString().contains(ai == 1? "red" : "blue");
+	}
+
+	public boolean blank(JButton button) {
+		return button.getIcon().toString().contains("brown");
 	}
 }// class DummyAgent
