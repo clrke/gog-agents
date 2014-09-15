@@ -1,24 +1,27 @@
 package sample17;
 
-class Pieces {
+class Pieces 
+{
 	public int[][] data;
 
-	public Pieces(int[][] data) {
+	public Pieces() 
+	{
+
+	}
+	public Pieces(int[][] data) 
+	{
 		this.data = data;
 	}
 
-	public Pieces() {
-
-	}
-
-	public String toString() {
+	public String toString() 
+	{
 		String string = "";
 
-		for (int i = 0; i < data.length; i++) {
+		for (int i = 0; i < data.length; i++) 
+		{
 			string += "\n|";
-			for (int j = 0; j < data[i].length; j++) {
+			for (int j = 0; j < data[i].length; j++)
 				string += String.format("%2d|", data[i][j]);
-			}
 		}
 
 		return string;
