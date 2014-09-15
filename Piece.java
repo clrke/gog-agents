@@ -1,3 +1,5 @@
+package ayee;
+
 class Piece {
 	public int x, y;
 	public int rank;

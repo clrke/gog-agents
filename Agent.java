@@ -1,4 +1,4 @@
-package bscs.ayee;
+package ayee;
 
 import java.util.ArrayList;
 import java.io.*;
@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Ayee
+public class Agent
 {
 	/*
 		SECTION :
@@ -90,7 +90,7 @@ public class Ayee
 
 		if(iAI == 1)
 		{
-			for(int i = 1; i < 8; i++) {
+			for(int i = 0; i < 8; i++) {
 				for (int j = 0; j < 9; j++) {
 					if(pieceIsMine(iAI, Board[i][j]) && ! pieceIsMine(iAI, Board[i-1][j]))
 					{
@@ -104,10 +104,10 @@ public class Ayee
 		}// if iAI == 1
 		else
 		{
-			for(int i = 6; i >= 0; i--) {
+			for(int i = 7; i >= 0; i--) {
 				for (int j = 8; j >= 0; j--) {
 					if(pieceIsMine(iAI, Board[i][j]) && ! pieceIsMine(iAI, Board[i+1][j]))
-					{	
+					{
 						return new int[][] {
 							{i, j},
 							{i+1, j}
