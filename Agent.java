@@ -1,6 +1,6 @@
 package sample17;
 
-public class Sample17 {
+public class Agent {
 	Pieces myPieces;
 	Pieces urPieces;
 
