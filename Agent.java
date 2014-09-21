@@ -74,30 +74,83 @@ public class Agent {
 			Move[1][1] = in what column the piece will be place
 		*/
 
+		int enemyRow = 0;
+		int enemyColumn = 0;
+
 		if(iAI == 1)
-		{
-			for(int i = 1; i < 8; i++) {
+		{	
+			for(int i = 0; i < 8; i++) {
 				for (int j = 0; j < 9; j++) {
-					if(pieceIsMine(iAI, Board[i][j]) && ! pieceIsMine(iAI, Board[i-1][j]))
+					if(pieceIsEnemys(iAI, Board[i][j]))
 					{
-						return new int[][] {
-							{i, j},
-							{i-1, j}
-						};
+						enemyRow = i;
+						enemyColumn = j;
+						i = 8; j = 9;
+					}
+				}
+			}
+
+			for(int i = 0; i < 8; i++) {
+				for (int j = 0; j < 9; j++) {
+					if(pieceIsMine(iAI, Board[i][j]))
+					{
+						if(i > enemyRow && ! pieceIsMine(iAI, Board[i-1][j])) {
+							return new int[][] {
+								{i, j},
+								{i-1, j}
+							};
+						}
+						else if(i < enemyRow && ! pieceIsMine(iAI, Board[i+1][j])) {
+							return new int[][] {
+								{i, j},
+								{i+1, j}
+							};
+						}
+						else {
+							return new int[][] {
+								{i, j},
+								{i, j + (j > enemyColumn? -1 : 1) }
+							};
+						}
 					}
 				}
 			}
 		}// if iAI == 1
 		else
 		{
-			for(int i = 6; i >= 0; i--) {
+			for(int i = 7; i >= 0; i--) {
 				for (int j = 8; j >= 0; j--) {
-					if(pieceIsMine(iAI, Board[i][j]) && ! pieceIsMine(iAI, Board[i+1][j]))
+					if(pieceIsEnemys(iAI, Board[i][j]))
 					{
-						return new int[][] {
-							{i, j},
-							{i+1, j}
-						};
+						enemyRow = i;
+						enemyColumn = j;
+						i = -1; j = -1;
+					}
+				}
+			}
+
+			for(int i = 7; i >= 0; i--) {
+				for (int j = 8; j >= 0; j--) {
+					if(pieceIsMine(iAI, Board[i][j]))
+					{
+						if(i > enemyRow && ! pieceIsMine(iAI, Board[i-1][j])) {
+							return new int[][] {
+								{i, j},
+								{i-1, j}
+							};
+						}
+						else if(i < enemyRow && ! pieceIsMine(iAI, Board[i+1][j])) {
+							return new int[][] {
+								{i, j},
+								{i+1, j}
+							};
+						}
+						else {
+							return new int[][] {
+								{i, j},
+								{i, j + (j > enemyColumn? -1 : 1) }
+							};
+						}
 					}
 				}
 			}
@@ -119,6 +172,10 @@ public class Agent {
 
 	public boolean pieceIsMine(int ai, JButton button) {
 		return button.getIcon().toString().contains(ai == 1? "red" : "blue");
+	}
+
+	public boolean pieceIsEnemys(int ai, JButton button) {
+		return button.getIcon().toString().contains(ai == 1? "blue" : "red");
 	}
 
 	public boolean blank(JButton button) {
