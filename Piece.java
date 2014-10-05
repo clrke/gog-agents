@@ -4,6 +4,9 @@ class Piece {
 	public int x, y;
 	public int rank;
 
+	public Piece() {
+		
+	}
 	public Piece(int x, int y, int rank) {
 		this.x = x;
 		this.y = y;
