@@ -214,6 +214,36 @@ public class Agent
 			}
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 9; j++) {
+					if(pieceIsMine(ai, board[i][j]) && myPieces[i][j].rank != 14) {
+						if(y < j && ! pieceIsMine(ai, board[i][j-1])) {
+							return new int[][] {
+				 				{i, j},
+								{i, j-1}
+							};		
+						}
+						else if(y > j && ! pieceIsMine(ai, board[i][j+1])) {
+							return new int[][] {
+				 				{i, j},
+								{i, j+1}
+							};		
+						}
+						else if(x < i && ! pieceIsMine(ai, board[i-1][j])) {
+							return new int[][] {
+				 				{i, j},
+								{i-1, j}
+							};		
+						}
+						else if(x > i && ! pieceIsMine(ai, board[i+1][j])) {
+							return new int[][] {
+				 				{i, j},
+								{i+1, j}
+							};
+						}
+					}
+				}
+			}
+			for (int i = 0; i < 8; i++) {
+				for (int j = 0; j < 9; j++) {
 					if(pieceIsMine(ai, board[i][j])) {
 						if(y < j && ! pieceIsMine(ai, board[i][j-1])) {
 							return new int[][] {
@@ -247,6 +277,36 @@ public class Agent
 			for (int i = 7; i >= 0; i--) {
 				for (int j = 8; j >= 0; j--) {
 					if(pieceIsMine(ai, board[i][j]) && defeats(myPieces[i][j].rank, rank)) {
+						if(y < j && ! pieceIsMine(ai, board[i][j-1])) {
+							return new int[][] {
+				 				{i, j},
+								{i, j-1}
+							};		
+						}
+						else if(y > j && ! pieceIsMine(ai, board[i][j+1])) {
+							return new int[][] {
+				 				{i, j},
+								{i, j+1}
+							};		
+						}
+						else if(x < i && ! pieceIsMine(ai, board[i-1][j])) {
+							return new int[][] {
+				 				{i, j},
+								{i-1, j}
+							};		
+						}
+						else if(x > i && ! pieceIsMine(ai, board[i+1][j])) {
+							return new int[][] {
+				 				{i, j},
+								{i+1, j}
+							};
+						}
+					}
+				}
+			}
+			for (int i = 7; i >= 0; i--) {
+				for (int j = 8; j >= 0; j--) {
+					if(pieceIsMine(ai, board[i][j]) && myPieces[i][j].rank != 14) {
 						if(y < j && ! pieceIsMine(ai, board[i][j-1])) {
 							return new int[][] {
 				 				{i, j},
@@ -440,8 +500,8 @@ public class Agent
 			return true;
 		if(rank2 == 0 && rank1 == 13)
 			return false;
-		if(rank1 == 14 && rank2 == 14)
-			return true;
+		if(rank1 == 14) 
+			return false;
 		if(rank1 > rank2)
 			return true;
 		return false;
